@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Assets\" />
+    <Folder Include="Views\UserControls\" />
+    <Folder Include="Views\Windows\" />
+    <Folder Include="Views\Styles\" />
+    <Folder Include="Views\Pages\" />
+    <Folder Include="Views\XamlResources\XamlConverters\" />
+  </ItemGroup>
+
+</Project>
