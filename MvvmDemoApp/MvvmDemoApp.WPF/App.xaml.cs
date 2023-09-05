@@ -13,5 +13,9 @@ namespace MvvmDemoApp.WPF
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            ApplicationLocator.RegisterDependencies();
+        }
     }
 }

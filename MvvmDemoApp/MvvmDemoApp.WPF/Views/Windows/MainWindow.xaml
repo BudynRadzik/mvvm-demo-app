@@ -1,0 +1,23 @@
+﻿<Window x:Class="MvvmDemoApp.WPF.Views.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MvvmDemoApp.WPF.Views.Windows"
+        mc:Ignorable="d"
+        Title="MVVM Demo Aplicaton" Height="450" Width="800"
+        DataContext="{Binding Source={StaticResource  ResourceKey=ViewModelLocator}, Path=MainWindowViewModel}">
+    
+    <Grid Background="{StaticResource DemoAppDarkGray}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Button Content="Download user data" Height="40" Width="200" Command="{Binding GetUserData}"/>
+        </Grid>
+        <Grid Grid.Row="1" Background="{StaticResource DemoAppLightGray}">
+            <TextBlock Text="{Binding UserInfoString}" TextAlignment="Center"/>
+        </Grid>
+    </Grid>
+</Window>

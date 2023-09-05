@@ -10,10 +10,18 @@
   <ItemGroup>
     <Folder Include="Views\Assets\" />
     <Folder Include="Views\UserControls\" />
-    <Folder Include="Views\Windows\" />
     <Folder Include="Views\Styles\" />
     <Folder Include="Views\Pages\" />
     <Folder Include="Views\XamlResources\XamlConverters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MvvmDemoApp.Shared.VM\MvvmDemoApp.Shared.VM.csproj" />
   </ItemGroup>
 
 </Project>
