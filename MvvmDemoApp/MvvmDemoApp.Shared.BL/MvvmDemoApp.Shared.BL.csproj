@@ -7,9 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Classes\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Static\" />
+    <ProjectReference Include="..\MvvmDemoApp.Shared.Models\MvvmDemoApp.Shared.Models.csproj" />
   </ItemGroup>
 
 </Project>

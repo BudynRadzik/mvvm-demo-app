@@ -16,4 +16,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MvvmDemoApp.Shared.BL\MvvmDemoApp.Shared.BL.csproj" />
+    <ProjectReference Include="..\MvvmDemoApp.Shared.Models\MvvmDemoApp.Shared.Models.csproj" />
+  </ItemGroup>
+
 </Project>

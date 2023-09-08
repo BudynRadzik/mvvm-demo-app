@@ -5,19 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MvvmDemoApp.WPF.Views.Windows"
         mc:Ignorable="d"
-        Title="MVVM Demo Aplicaton" Height="450" Width="800"
-        DataContext="{Binding Source={StaticResource  ResourceKey=ViewModelLocator}, Path=MainWindowViewModel}">
-    
-    <Grid Background="{StaticResource DemoAppDarkGray}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0">
-            <Button Content="Download user data" Height="40" Width="200" Command="{Binding GetUserData}"/>
-        </Grid>
-        <Grid Grid.Row="1" Background="{StaticResource DemoAppLightGray}">
-            <TextBlock Text="{Binding UserInfoString}" TextAlignment="Center"/>
-        </Grid>
+        Title="MVVM Demo Aplicaton" Height="450" Width="500"
+        
+        Background="Transparent"
+        DataContext="{Binding Source={StaticResource ViewModelLocator}, Path=MainWindowViewModel}">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,2"
+                                 EndPoint="1,1">
+                    <GradientStop Color="AliceBlue" Offset="0.2"/>
+                    <GradientStop Color="DarkBlue" Offset="1.5"/>
+
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Button Content="Download User Data" Height="30" MaxWidth="160" Background="DodgerBlue"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="0,0,0,20" 
+                     FontSize="13" FontWeight="Bold" FontFamily="Comic Sans MS"
+                        Command="{Binding GetUserData}"/>
+                
+                
+                <Image Source="{Binding UserData.PictureLarge}" Width="150"  HorizontalAlignment="Right" ></Image>
+
+
+            </Grid>
+            
+        </Border>
+        
+
     </Grid>
 </Window>
+
+
+
+
+

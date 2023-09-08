@@ -1,43 +1,48 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
-using CommunityToolkit.Mvvm.Input;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using MvvmDemoApp.Shared.BL.Interfaces;
+using MvvmDemoApp.Shared.Models.Local;
+using MvvmDemoApp.Shared.Models.Transfer;
 
 namespace MvvmDemoApp.Shared.VM.ViewModels.Windows
 {
     public class MainWindowVM : ObservableRecipient
     {
+        private IUserAccountManager _userAccountManager;
 
-        #region Property: UserInfoString
-
-        private string _userInfoString = string.Empty;
-        public string UserInfoString
+        public MainWindowVM(IUserAccountManager userAccountManager)
         {
-            get
-            {
-                return _userInfoString;
-            }
-            set
-            {
-                _userInfoString = value;
-                OnPropertyChanged(nameof(UserInfoString));
-            }
+            _userAccountManager = userAccountManager;
+
+            _userAccountManager.OnUserDataUpdated += _userAccountManager_OnUserDataUpdated;
         }
+
+        private void _userAccountManager_OnUserDataUpdated(object? sender, EventArgs e)
+        {
+            OnPropertyChanged(nameof(UserData));
+        }
+
+        #region Property: UserData
+
+        public UserData UserData => _userAccountManager.UserData;
 
         #endregion
 
         #region RelayCommand: GetUserData
-      
+
         public RelayCommand GetUserData
         {
             get
             {
                 return new RelayCommand(async () =>
                 {
-                    UserInfoString = DateTime.Now.ToString();
+                    await _userAccountManager.GetUserData();
                 });
             }
         }
